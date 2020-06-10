@@ -1,0 +1,328 @@
+/* 全局变量 */
+// 颜色
+@color-brand: #c7473a;
+@color-blue: #409eff;
+@color-success: #67c23a;
+@color-warning: #e6a23c;
+@color-danger: #f56c6c;
+@color-info: #909399;
+@color-grey: #999;
+@color-title: rgb(2, 2, 2);
+@color-text: #666;
+@color-default-bgc: #f5f5f5;
+@color-default-bdc: #e6e6e6;
+@color-default-input_placeholder_color: #ddd;
+@color-black: #000;
+@color-border: #eee;
+@color-orange: #ff9f00;
+// 字体
+@font-base-size: 14px;
+@font-base-weight: 400;
+@font-base-line-height: 1.5;
+// 定位层级
+@z-index-base: 1;
+@z-index-one: 9;
+@z-index-two: 99;
+@z-index-three: 999;
+@z-index-four: 9999;
+
+// 适配
+@content-min-width: 1200px;
+@content-max-width: 2560px;
+@scroll-size: 8px;
+
+// __cyan
+// layout
+@__cyan_header_height: 80px;
+@__cyan_nav_height: 63px;
+@__cyan_breadcrumb_height: 45px;
+// color
+@__cyan_color_brand_close: #d2e4fa;
+// form
+@__cyan_input_height: 34px;
+@__cyan_label_width_base: 80px;
+@__cyan_label_width_normal: 100px;
+@__cyan_label_width_middle: 120px;
+@__cyan_label_width_large: 140px;
+// table
+@__cyan_table_cell_padding: 3px 0; /** 控制 cell 高度 */
+@__cyan_table_cell_head_padding: 8px 0; /** 控制 head cell 高度 */
+
+/* 全局类 */
+// 盒模型隐藏
+.none {
+  display: none;
+}
+
+// 基础字体样式
+.base-font {
+  font-size: @font-base-size;
+  line-height: @font-base-line-height;
+  font-weight: @font-base-weight;
+}
+
+// 清除内外边距
+.clear-pm {
+  margin: 0;
+  padding: 0;
+}
+
+.bb {
+  border-bottom: solid 1px @color-default-bdc;
+}
+.bt {
+  border-top: solid 1px @color-default-bdc;
+}
+.br {
+  border-bottom: solid 1px @color-default-bdc;
+}
+.bl {
+  border-top: solid 1px @color-default-bdc;
+}
+.border-all {
+  border: solid 1px @color-default-bdc;
+}
+
+// 继承父盒子宽高
+.wh100 {
+  width: 100%;
+  height: 100%;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  visibility: hidden;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+.text-overflow(@num) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @num;
+}
+
+.text-overflow-1 {
+  width: 100%;
+  overflow: hidden; /*超出部分隐藏*/
+  white-space: nowrap; /*不换行*/
+  text-overflow: ellipsis; /*超出部分文字以...显示*/
+}
+
+// font-size 10px
+.text-scale {
+  display: inline-block;
+  font-size: 12px !important;
+  height: 100%;
+  width: 100%;
+  transform: scale(0.8333);
+}
+
+.__cyan_main_content_width {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  min-width: @content-min-width;
+  max-width: @content-max-width;
+}
+
+.__cyan_main_content_width_reset(@width) {
+  min-width: @width !important;
+  max-width: @width !important;
+}
+
+.borderRadius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  -ms-border-radius: @radius;
+  -o-border-radius: @radius;
+  border-radius: @radius;
+}
+
+//定位全屏
+.allcover {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+//定位上下左右居中
+.ab-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//定位上下居中
+.ct {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+//定位左右居中
+.cl {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+//宽高
+.wh(@width, @height) {
+  width: @width;
+  height: @height;
+}
+
+//字体大小，颜色
+.sc(@size, @color) {
+  font-size: @size;
+  color: @color;
+}
+
+.text-green {
+  color: @color-success;
+}
+
+.text-red {
+  color: red;
+}
+
+.text-orange {
+  color: @color-warning;
+}
+
+//flex 垂直布局
+.fdc {
+  display: flex;
+  flex-direction: column;
+}
+
+.bgColor {
+  background: linear-gradient(
+    0deg,
+    rgba(146, 0, 249, 0.99) 0%,
+    rgba(146, 0, 249, 0.99) 44%,
+    rgba(127, 0, 255, 0.99) 93%,
+    rgba(137, 0, 252, 0.99) 97%,
+    rgba(146, 0, 249, 0.99) 100%
+  );
+}
+
+//-----flex居中布局-----
+//横向居中
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+//横向垂直居中
+.row-start {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.row-end {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+//横向环绕
+.row-around {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+//横向非环绕
+.row-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//纵向居中
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.column-between {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//纵向顶部对齐居中
+.column-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.column-left-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+//纵向底部对齐居中
+.column-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+//纵向左对齐
+.column-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+//两边对齐
+.row-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+//自定义
+.self(@a, @b, @c) {
+  display: flex;
+  flex-direction: @a;
+  justify-content: @b;
+  align-items: @c;
+}
+
+.media-padding {
+  padding: 0 2%;
+
+  @media screen and (max-width: (@content-min-width + @scroll-size)) {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}

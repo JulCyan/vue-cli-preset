@@ -1,8 +1,10 @@
 {
-  "useTaobaoRegistry": false,
+  "useTaobaoRegistry": true,
   "packageManager": "yarn",
   "latestVersion": "4.4.1",
+  "git": false,
   "useConfigFiles": true,
+  "cssPreprocessor": "less",
   "plugins": {
     "@vue/cli-plugin-babel": {},
     "@vue/cli-plugin-typescript": {
@@ -19,5 +21,8 @@
     },
     "@vue/cli-plugin-unit-jest": {}
   },
-  "cssPreprocessor": "less"
+  "configs": {
+    "vue": {},
+    "eslintConfig": {}
+  }
 }

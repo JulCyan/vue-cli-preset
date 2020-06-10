@@ -1,0 +1,7 @@
+import './class-component-hooks'
+export { default as router } from './router'
+export { default as store } from './store'
+export { default as axios } from './axios'
+export { default as utils } from './utils'
+export * from './decorator'
+export { default as directive } from './directive'
