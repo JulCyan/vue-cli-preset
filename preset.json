@@ -21,8 +21,5 @@
     },
     "@vue/cli-plugin-unit-jest": {}
   },
-  "configs": {
-    "vue": {},
-    "eslintConfig": {}
-  }
+  "configs": {}
 }

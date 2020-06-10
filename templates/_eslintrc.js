@@ -90,6 +90,13 @@ module.exports = {
     'eol-last': 2,
     // 使用 === 替代 ==  
     // 'eqeqeq': [1, 'allow-null'],
+    'eqeqeq': 0,
+    "@typescript-eslint/ban-ts-ignore": 0,
+    "@typescript-eslint/no-empty-function": 0,
+    "@typescript-eslint/no-unused-vars": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/no-this-alias": 0,
+    "@typescript-eslint/interface-name-prefix": 0
   },
   parserOptions: {
     parser: '@typescript-eslint/parser',

@@ -13,7 +13,7 @@ export const haveRolesPermission = (binding: any): boolean => {
   // 拆分用户权限
   let controlList = PermissionDirective.turnToBinaryPermissionSum(controlSum)
   // 找到拥有权限的一项
-  controlList.find(item => showFlag = pd.result(item))
+  controlList.find(item => (showFlag = pd.result(item)))
   return showFlag
 }
 

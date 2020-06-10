@@ -1,9 +1,14 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import Router, { RouteConfig } from 'vue-router'
 import { CLEAR_TIMER_OPERATOR } from '@/plugins/decorator'
+import Index from '@/views/Index.vue'
 Vue.use(Router)
-
-let routes = []
+let routes: Array<RouteConfig> = [
+  {
+    path: '/',
+    component: Index
+  }
+]
 
 // 初始化 Vue Router
 const router = new Router({

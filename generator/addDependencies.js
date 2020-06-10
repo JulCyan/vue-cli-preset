@@ -6,6 +6,15 @@ module.exports = function addDependencies(api, opts) {
       "moment": "^2.24.0"
     },
     "devDependencies": {
+      "uglifyjs-webpack-plugin": "^2.2.0",
     }
   })
+
+  if (opts.analyzer) {
+    api.extendPackage({
+      "devDependencies": {
+        "webpack-bundle-analyzer": "^3.8.0"
+      }
+    })
+  }
 }

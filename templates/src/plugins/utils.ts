@@ -2,6 +2,10 @@ import { BaseNS } from '@/configs/type'
 import { BrowserType, ImplicitParseFalseExcludes, WeChatJsApiList as jsApiList, RegWeChat, PermissionArgs, DataType } from '@/configs/const'
 import { IDirectiveBinding } from '@/configs/interface'
 import VueRouter, { RawLocation } from 'vue-router/types'
+export interface UtilsConfigs {
+  router?: VueRouter;
+  cookies?: any;
+}
 // 此处继承没有必要联系, 只是为了区分职责, ts 只能单类继承
 export class StorageOperation {
   private readonly cookies: any
@@ -533,12 +537,24 @@ export class Utils extends ProjectSelf {
   }
 }
 
+/**
+ * @class Directive
+ * @description 指令基础父类
+ */
 export class Directive {
   public binding: { value: Array<number> | number; arg: string; modifiers: any }
   constructor (binding) {
     this.binding = binding
   }
-
+  
+  /**
+   * @method constructBinding
+   * @description 根据参数构造 vue 指令对象
+   * @param value 
+   * @param arg 
+   * @param modifiers 
+   * @param name 
+   */
   static constructBinding (value: any, arg = '', modifiers: any = {}, name = 'permission'): IDirectiveBinding {
     return {
       arg,
@@ -560,6 +576,11 @@ export class PermissionDirective extends Directive {
     this.permissionArgs = PermissionArgs
   }
 
+  /**
+   * @method turnToBinaryPermissionSum
+   * @description 将 1248 合集拆分
+   * @param value 
+   */
   static turnToBinaryPermissionSum (value: BaseNS): Array<number> {
     // 转为二进制
     const binary = parseInt(value as string, 10).toString(2).split('').reverse().join('')
@@ -589,6 +610,11 @@ export class PermissionDirective extends Directive {
     return !(this.binding.value as Array<number>).includes(this.userType)
   }
 
+  /**
+   * @method result
+   * @description 根据指令参数调用不同的处理方法后返回结果
+   * @param userType 
+   */
   public result (userType: number = this.userType): boolean {
     this.userType = userType
     const {
@@ -622,11 +648,6 @@ export class PermissionDirective extends Directive {
 
     return result
   }
-}
-
-export interface UtilsConfigs {
-  router?: VueRouter;
-  cookies?: any;
 }
 
 export default {
