@@ -8,6 +8,16 @@ yarn global add @vue/cli
 
 vue create --preset BlackCyanC/vue-cli-preset project-name
 
+Or
+
+git clone or download zip
+
+Now you can modify the templates file to customize it
+
+yarn global add @vue/cli
+
+vue create --preset projectPath(relative or absolute) project-name
+
 
 # Preset Features
 
@@ -42,6 +52,7 @@ vue create --preset BlackCyanC/vue-cli-preset project-name
 - Tests
 
   - unit
+  
     - Utils
 - ENV
 - Mixins
